@@ -1,0 +1,17 @@
+<!ELEMENT bnhs (volume*)>
+<!ELEMENT volume (part*)>
+<!ATTLIST volume vnum CDATA #REQUIRED>
+<!ELEMENT part (entry+)>
+<!ATTLIST part pnum CDATA #REQUIRED>
+<!ATTLIST part month CDATA #REQUIRED>
+<!ATTLIST part year CDATA #REQUIRED>
+<!ELEMENT entry (title,category,page,type,noplates,ppage,allauthors,plates)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+<!ELEMENT page (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT noplates (#PCDATA)>
+<!ELEMENT ppage (#PCDATA)>
+<!ELEMENT allauthors (author*)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT plates (#PCDATA)>
