@@ -24,7 +24,7 @@ if($num_rows > 0)
 		$part = $row['part'];
 		$dpart = preg_replace("/^0/", "", $part);
 		$dpart = preg_replace("/\-0/", "-", $dpart);
-		echo (($row['month'] == '01') && ($isFirst == 0)) ? '<div class="deLimiter">|</div>' : '';
+		//~ echo (($row['month'] == '01') && ($isFirst == 0)) ? '<div class="deLimiter">|</div>' : '';
 		$monthdetails = getMonth($row['month']) . ", " . $row['year'];
 		$monthdetails = preg_replace('/^,/', '', $monthdetails);
 		echo '<div class="aIssue"><a href="toc.php?vol=' . $volume . '&amp;part=' . $row['part'] . '" title="'. $monthdetails .'">Issue ' . $dpart . '</a></div>';

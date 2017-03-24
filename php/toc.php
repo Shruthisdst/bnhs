@@ -39,7 +39,7 @@ if($num_rows > 0)
 	while($row = $result->fetch_assoc())
 	{
 		$query3 = 'select feat_name from feature where featid=\'' . $row['featid'] . '\'';
-		$result3 = $db->query($query3); 
+		$result3 = $db->query($query3);
 		$row3 = $result3->fetch_assoc();
 		
 		$dpart = preg_replace("/^0/", "", $row['part']);
@@ -48,10 +48,10 @@ if($num_rows > 0)
 
 		echo '<div class="article">';
 		echo ($row3['feat_name'] != '') ? '<div class="gapBelowSmall"><span class="aFeature clr2"><a href="feat.php?feature=' . urlencode($row3['feat_name']) . '&amp;featid=' . $row['featid'] . '">' . $featAbbre[$row3['feat_name']] . '</a></span></div>' : '';
-		echo '	<span class="aTitle"><a target="_blank" href="../Volumes/djvu/' . $row['volume'] . '/' . $part . '/index.djvu?djvuopts&amp;page=' . $row['page'] . '.djvu&amp;zoom=page">' . $row['title'] . '</a></span><br />';
+		echo '<span class="aTitle"><a target="_blank" href="../Volumes/djvu/' . $row['volume'] . '/' . $part . '/index.djvu?djvuopts&amp;page=' . $row['page'] . '.djvu&amp;zoom=page">' . $row['title'] . '</a></span><br />';
 		if($row['authid'] != 0) {
 
-			echo '	<span class="aAuthor itl">by ';
+			echo '<span class="aAuthor itl">by ';
 			$authids = preg_split('/;/',$row['authid']);
 			$authornames = preg_split('/;/',$row['authorname']);
 			$a=0;
@@ -60,7 +60,6 @@ if($num_rows > 0)
 				echo '<a href="auth.php?authid=' . $aid . '&amp;author=' . urlencode($authornames[$a]) . '">' . $authornames[$a] . '</a> ';
 				$a++;
 			}
-			
 			echo '</span><br/>';
 		}
 		echo "<span class=\"download\"><a href=\"downloadPdf.php?titleid=" . $row['titleid'] . "\" target=\"_blank\">Download Pdf</a></span>";
