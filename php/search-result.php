@@ -203,11 +203,7 @@ if($num_rows > 0)
             }
             $id = $row['titleid'];
         }
-        $plates = preg_split('/,/',$row['platPages']);
-		if($row['platPages'] != '')
-		{
-			echo '<br /><span class="download"><a target="_blank" href="../Volumes/djvu/' . $row['volume'] . '/' . $row['part'] . '/index.djvu?djvuopts&amp;page=' . $plates[0] . '.djvu&amp;zoom=page">View plates</a></span><br />';
-		}
+        
     }
 }
 else

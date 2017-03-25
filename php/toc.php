@@ -66,7 +66,14 @@ if($num_rows > 0)
 		$plates = preg_split('/,/',$row['platPages']);
 		if($row['platPages'] != '')
 		{
-			echo ' | <span class="download"><a target="_blank" href="../Volumes/djvu/' . $row['volume'] . '/' . $part . '/index.djvu?djvuopts&amp;page=' . $plates[0] . '.djvu&amp;zoom=page">View plates</a></span><br />';
+			echo ' | <span class="download">';
+			echo count($plates) > 1 ? 'Plates:' : 'Plate:';
+			for($p=0;$p<count($plates);$p++)
+			{
+				$cnt = $p+1;
+				echo '&nbsp;&nbsp;<a target="_blank" href="../Volumes/djvu/' . $row['volume'] . '/' . $part . '/index.djvu?djvuopts&amp;page=' . $plates[$p] . '.djvu&amp;zoom=page">' . $cnt . '</a>';
+			}
+			echo '</span><br />';
 		}
 		echo '</div>';
 	}
